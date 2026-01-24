@@ -3,6 +3,8 @@ import './App.css'
 import Header from './components/Header'
 import StudentInfo from './components/StudentInfo'
 import Footer from './components/Footer'
+import Counter from './components/Counter'
+import Todolist from './components/Todolist'
 
 function App() {
   const student = {
@@ -21,6 +23,8 @@ function App() {
     <>
       <Header />
       <StudentInfo student={student} fn={logStudent} /> 
+      <Counter />
+      <Todolist />
       <Footer />
     </>
   )

@@ -5,7 +5,7 @@ function Footer() {
     <>
       <footer>
         <div>
-            <p>© 2024 Quan ly sinh vien. All rights reserved.</p>
+            <p>© 2026 Quan ly sinh vien. All rights reserved.</p>
         </div>
       </footer>
     </>
