@@ -6,7 +6,7 @@ function Dashboard() {
     <>
       <h1>Welcome to React!</h1>
       <p>My name is Tran Tuan Hung - Student ID: 23659581</p>
-      <p>This is my exercise for week 2.</p>
+      <p>This is my exercise for week 3.</p>
       <nav>
         <li>
           <Link to="/ex1" className="nav-link">
