@@ -31,8 +31,8 @@ function Exercise3() {
     const handleFetch = (e) => {
         e.preventDefault();
         const userId = e.target[0].value;
-        if (parseInt(userId) <= 0 && parseInt(userId) > 10) {
-          setError("Invalid user ID");
+        if (parseInt(userId) <= 0 || parseInt(userId) > 10) {
+          setError("Usser not found");
           return;
         }
         console.log(userId);

@@ -1,101 +1,217 @@
-import { useState, useRef, useEffect } from 'react';
+import React, { useState, useCallback, memo, useEffect } from "react";
+import Direction from "./Direction";
 
-function Exercise5() {
-  const [time, setTime] = useState(0);
-  const [running, setRunning] = useState(false);
-  const [laps, setLaps] = useState([]);
-  const [lapName, setLapName] = useState("");
-  const intervalId = useRef(null);
-  const lapInputRef = useRef(null);
+// TodoItem: chỉ re-render khi props thay đổi
+const TodoItem = memo(function TodoItem({ todo, onDelete, onToggle }) {
+  return (
+    <li style={{ display: "flex", alignItems: "center", padding: 4 }}>
+      <input
+        type="checkbox"
+        checked={todo.completed}
+        onChange={() => onToggle(todo.id)}
+        style={{ marginRight: 8 }}
+      />
+      <span
+        style={{
+          flex: 1,
+          textDecoration: todo.completed ? "line-through" : "none",
+        }}
+      >
+        {todo.text}
+      </span>
+      <button onClick={() => onDelete(todo.id)} style={{ marginLeft: 8 }}>
+        Xóa
+      </button>
+    </li>
+  );
+});
 
-  // Start
-  const handleStart = () => {
-    if (!running) {
-      setRunning(true);
-      intervalId.current = setInterval(() => {
-        setTime(prev => prev + 10);
-      }, 10);
+function TodoInput({ onAdd, loading }) {
+  const [value, setValue] = useState("");
+  const handleAdd = () => {
+    if (value.trim()) {
+      onAdd(value.trim());
+      setValue("");
     }
   };
+  return (
+    <div style={{ marginBottom: 12 }}>
+      <input
+        value={value}
+        onChange={(e) => setValue(e.target.value)}
+        onKeyDown={(e) => e.key === "Enter" && handleAdd()}
+        placeholder="Thêm todo..."
+        style={{ padding: 6, width: 220, marginRight: 8 }}
+      />
+      <button onClick={handleAdd} disabled={loading}>
+        Thêm
+      </button>
+    </div>
+  );
+}
 
-  // Pause
-  const handlePause = () => {
-    setRunning(false);
-    if (intervalId.current) {
-      clearInterval(intervalId.current);
-      intervalId.current = null;
-    }
-  };
-
-  // Reset
-  const handleReset = () => {
-    setRunning(false);
-    setTime(0);
-    setLaps([]);
-    setLapName("");
-    if (intervalId.current) {
-      clearInterval(intervalId.current);
-      intervalId.current = null;
-    }
-  };
-
-  // Add Lap
-  const handleAddLap = () => {
-    if (lapName.trim()) {
-      setLaps([...laps, { name: lapName, time }]);
-      setLapName("");
-    }
-    // Focus input lap name
-    if (lapInputRef.current) lapInputRef.current.focus();
-  };
-
-  // Cleanup interval on unmount
-  useEffect(() => {
-    return () => {
-      if (intervalId.current) clearInterval(intervalId.current);
-    };
-  }, []);
-
-  // Format time
-  const formatTime = (ms) => {
-    const centiseconds = Math.floor((ms % 1000) / 10);
-    const seconds = Math.floor((ms / 1000) % 60);
-    const minutes = Math.floor((ms / 60000) % 60);
-    const hours = Math.floor(ms / 3600000);
-    return `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}.${centiseconds.toString().padStart(2, '0')}`;
-  };
+function TodoList({ todos, onDelete, onToggle }) {
+  console.log(todos);
 
   return (
-    <div style={{ maxWidth: 400, margin: '32px auto', padding: 24, borderRadius: 12, boxShadow: '0 2px 12px #0002', background: '#fff' }}>
-      <h2>Stopwatch</h2>
-      <div style={{ fontSize: 32, fontWeight: 600, marginBottom: 16, fontFamily: 'monospace' }}>{formatTime(time)}</div>
-      <div style={{ marginBottom: 16 }}>
-        <button onClick={handleStart} disabled={running} style={{ marginRight: 8 }}>Start</button>
-        <button onClick={handlePause} disabled={!running} style={{ marginRight: 8 }}>Pause</button>
-        <button onClick={handleReset}>Reset</button>
-      </div>
-      <div style={{ marginBottom: 16 }}>
-        <input
-          ref={lapInputRef}
-          value={lapName}
-          onChange={e => setLapName(e.target.value)}
-          placeholder="Lap name"
-          style={{ padding: 6, width: 180, marginRight: 8 }}
+    <ul
+      style={{
+        padding: 0,
+        listStyle: "none",
+        maxHeight: 400,
+        overflow: "auto",
+        border: "1px solid #eee",
+        borderRadius: 8,
+      }}
+    >
+      {todos.map((todo) => (
+        <TodoItem
+          key={todo.id}
+          todo={todo}
+          onDelete={onDelete}
+          onToggle={onToggle}
         />
-        <button onClick={handleAddLap}>Add Lap</button>
-      </div>
+      ))}
+    </ul>
+  );
+}
+
+function Exercise5() {
+  // Tạo list lớn để test performance
+  const [todos, setTodos] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    setLoading(true);
+    const fetchTodos = async () => {
+      try {
+        const res = await fetch(
+          "https://6774077677a26d4701c708da.mockapi.io/api/todos",
+        );
+        if (!res.ok) {
+          setError("Error fetching todos");
+          return;
+        }
+        const data = await res.json();
+        setTodos(data);
+      } catch (error) {
+        setError(error.message);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchTodos();
+  }, []);
+
+  // useCallback để không tạo lại hàm mới mỗi lần render
+  const handleDelete = useCallback(async (id) => {
+    const confirmDelete = window.confirm("Bạn có chắc muốn xóa không?");
+    if (!confirmDelete) {
+      setLoading(false);
+      return;
+    } else {
+      try {
+        const res = await fetch(
+          `https://6774077677a26d4701c708da.mockapi.io/api/todos/${id}`,
+          {
+            method: "DELETE",
+          },
+        );
+        if (!res.ok) {
+          setError("Error deleting todo");
+          return;
+        }
+        const newTodo = await res.json();
+        console.log(newTodo);
+
+        setTodos((todos) => todos.filter((todo) => todo.id !== id));
+      } catch (error) {
+        setError(error.message);
+      } finally {
+        setLoading(false);
+      }
+    }
+  }, []);
+
+  const handleToggle = useCallback(async (id) => {
+    setLoading(true);
+    try {
+      const res = await fetch(
+        `https://6774077677a26d4701c708da.mockapi.io/api/todos/${id}`,
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ completed: true }),
+        },
+      );
+      if (!res.ok) {
+        setError("Error deleting todo");
+        return;
+      }
+      const newTodo = await res.json();
+      setTodos((todos) =>
+        todos.map((todo) => (todo.id === id ? newTodo : todo)),
+      );
+    } catch (error) {
+      setError(error.message);
+    } finally {
+      setLoading(false);
+    }
+  }, []);
+
+  const handleAdd = useCallback(async (text) => {
+    setLoading(true);
+    try {
+      const res = await fetch(
+        "https://6774077677a26d4701c708da.mockapi.io/api/todos",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ text, completed: false }),
+        },
+      );
+      if (!res.ok) {
+        setError("Error adding todo");
+        return;
+      }
+      const newTodo = await res.json();
+      console.log(newTodo);
+
+      setTodos((todos) => [newTodo, ...todos]);
+    } catch (error) {
+      setError(error.message);
+    } finally {
+      setLoading(false);
+    }
+  }, []);
+
+  return (
+    <>
+      <Direction prevPage={"/ex4"} nextPage={""} />
       <div>
-        <h4>Laps</h4>
-        <ul style={{ padding: 0, listStyle: 'none' }}>
-          {laps.map((lap, idx) => (
-            <li key={idx} style={{ padding: '4px 0', borderBottom: '1px solid #eee', display: 'flex', justifyContent: 'space-between' }}>
-              <span>{lap.name}</span>
-              <span style={{ fontFamily: 'monospace' }}>{formatTime(lap.time)}</span>
-            </li>
-          ))}
-        </ul>
+        <h2>Todo List Performance</h2>
+        <TodoInput onAdd={handleAdd} loading={loading} />
+        {loading && <p>Loading...</p>}
+        {error && <p style={{ color: "red" }}>Error: {error}</p>}
+        {!loading && !error && (
+          <>
+            <TodoList
+              todos={todos}
+              onDelete={handleDelete}
+              onToggle={handleToggle}
+            />
+            <div style={{ marginTop: 8, color: "#888", fontSize: 13 }}>
+              Số lượng: {todos.length}
+            </div>
+          </>
+        )}
       </div>
-    </div>
+    </>
   );
 }
 

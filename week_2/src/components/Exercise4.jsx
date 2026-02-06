@@ -1,7 +1,7 @@
-import React, { useState, useCallback } from "react";
+import React, { useState, useCallback, memo } from "react";
 
 // TodoItem: chỉ re-render khi props thay đổi
-const TodoItem = React.memo(function TodoItem({ todo, onDelete, onToggle }) {
+const TodoItem = memo(function TodoItem({ todo, onDelete, onToggle }) {
   console.log("render item", todo.id);
   return (
     <li style={{ display: "flex", alignItems: "center", padding: 4 }}>

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import Direction from './Direction';
 
 function Exercise1() {
     const [users, setUsers] = useState([])
@@ -27,6 +28,7 @@ function Exercise1() {
 
   return (
     <>
+        <Direction prevPage={null} nextPage={"/ex2"} />
         <h2>User List</h2>
         {Loading && <p>
             Fetching users...
