@@ -2,51 +2,58 @@ import React, { useEffect, useState } from 'react'
 import Direction from './Direction';
 
 function Exercise2() {
-    const [users, setUsers] = useState([])
-    const [Loading, setLoading] = useState(false);
-    const [error, setError] = useState(null);
-
-    useEffect( () => {
-        const fetchUsers = async () => {
+    const [users, setUsers] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState({ error: false, message: "" });
+    const url = 'https://jsonplaceholder.typicode.com/users'
+    useEffect(() => {
+        const fetchData = async () => {
             setLoading(true);
-            setError(null)
-            
             try {
-                const response = await fetch('https://jsonplaceholder.typicode.com/users')
-            const data = await response.json()
-            console.log(data);
-            setLoading(false);
-            setUsers(data);
-            } catch (error) {
-                console.error(error);
-                setError(error);
-            }
-        }
+                const res = await fetch(url);
+                if (!res.ok) throw new Error("Không thể tải dữ liệu");
 
-        fetchUsers();
+                const data = await res.json();
+                setUsers(data);
+                setError({ error: false, message: "" });
+            } catch (err) {
+                setError({ error: true, message: err.message });
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        fetchData();
     }, [])
 
-  return (
-    <>  
-        <Direction prevPage={"/ex1"} nextPage={"/ex3"} />
-        <h2>User List</h2>
-        {Loading && <p>
-            Fetching users...
-            </p>}
-        {error && <p style={{color: 'red'}}>Error: {error}</p>}
+    if (loading) return <div>Đang tải dữ liệu...</div>;
+    if (error.error) return <div>Lỗi: {error.message}</div>;
 
-        {!Loading && (
-            <ul>
-              {users.map(user => (
-                  <li className="user-info" key={user.id}>
-                      <span>{user.name}</span> - <span>{user.email}</span>
-                  </li>
-              ))}
-          </ul>
-        )}
-        
-    </>
-  )
+    return (
+        <>
+            <Direction prevPage={"/ex1"} nextPage={"/ex3"} />
+            <h2>User List</h2>
+            {users.map((user) => {
+                return (
+                    <div
+                        key={user.id}
+                        style={{
+                            display: "flex"
+                        }}
+                    >
+                        <div>
+                            {user.name}
+                        </div>
+                        -
+                        <div>
+                            {user.email}
+                        </div>
+                    </div>
+                )
+            })}
+
+        </>
+    )
 }
 
 export default Exercise2
