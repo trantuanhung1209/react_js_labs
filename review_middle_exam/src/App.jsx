@@ -1,70 +1,105 @@
 
 import React, { use, useEffect, useState } from 'react';
+import Counter_5 from './components/Counter_5';
+import Counter_6 from './components/Counter_6';
+import Dashboard from './components/Dashboard';
+import {
+  createBrowserRouter,
+  Route,
+  RouterProvider,
+  Routes,
+} from "react-router-dom";
+import Counter_2 from './components/Counter_2';
+import Counter_3 from './components/Counter_3';
+import Counter_4 from './components/Counter_4';
+import Counter_7 from './components/Counter_7';
+import Counter_8 from './components/Counter_8';
+import Counter_9 from './components/Counter_9';
+import Counter_10 from './components/Counter_10';
+import CounterState from './components/Counter_1';
+import CounterReducer from './components/Counter_2';
+import FetchingData from './components/FetchingData';
+import FetchingDataWithHook from './components/FetchingDataWithHook';
+import MemoDemo from './components/MemoDemo';
+import UseMemoUserSearch from './components/UseMemoUserSearch';
+import UseCallbackDemo from './components/UseCallbackDemo';
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Dashboard />,
+  },
+  {
+    path: "/dashboard",
+    element: <Dashboard />,
+    children: [
+      {
+        path: "counter1",
+        element: <CounterState />,
+      },
+      {
+        path: "counter2",
+        element: <CounterReducer />,
+      },
+      {
+        path: "counter3",
+        element: <Counter_3 />,
+      },
+      {
+        path: "counter4",
+        element: <Counter_4 />,
+      },
+      {
+        path: "counter5",
+        element: <Counter_5 />,
+      },
+      {
+        path: "counter6",
+        element: <Counter_6 />,
+      },
+      {
+        path: "counter7",
+        element: <Counter_7 />,
+      },
+      {
+        path: "counter8",
+        element: <Counter_8 />,
+      },
+      {
+        path: "counter9",
+        element: <Counter_9 />,
+      },
+      {
+        path: "counter10",
+        element: <Counter_10 />,
+      },
+      {
+        path: "fetching-data",
+        element: <FetchingData />,
+      },
+      {
+        path: "fetching-data-hook",
+        element: <FetchingDataWithHook />,
+      },
+      {
+        path: "memo-demo",
+        element: <MemoDemo />,
+      },
+      {
+        path: "usememo-search-users",
+        element: <UseMemoUserSearch />,
+      },
+      {
+        path: "usecallback-demo",
+        element: <UseCallbackDemo />,
+      },
+    ],
+  },
+]);
 
 function App() {
-  const [users, setUsers] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState({ error: false, message: "" });
-  const fetchData = async (userId = "") => {
-    setLoading(true);
-    try {
-      const res = await fetch(`https://jsonplaceholder.typicode.com/users/${userId}`);
-      if (!res.ok) throw new Error("Không thể tải dữ liệu");
 
-      const data = await res.json();
-      setUsers(Array.isArray(data) ? data : [data]); 
-      setError({ error: false, message: "" });
-    } catch (err) {
-      setError({ error: true, message: err.message });
-    } finally {
-      setLoading(false);
-    }
-  };
-  useEffect(() => {
-    fetchData();
-  }, [])
-
-  const handleFetch = (e) => {
-    e.preventDefault();
-    const userId = e.target[0].value;
-    if (parseInt(userId) <= 0 || parseInt(userId) > 10) {
-      setError({ error: true, message: "user not found" });
-      return;
-    }
-    console.log(userId);
-    fetchData(userId);
-  }
-
-  if (loading) return <div>Đang tải dữ liệu...</div>;
-  if (error.error) return <div>Lỗi: {error.message}</div>;
-
-  return (
-    <>
-      <form onSubmit={handleFetch}>
-        <input type="text" />
-        <button type='submit'>Fetch users</button>
-      </form>
-      <h2>User List</h2>
-      {users.map((user) => {
-        return (
-          <div
-            key={user.id}
-            style={{
-              display: "flex"
-            }}
-          >
-            <div>
-              {user.name}
-            </div>
-            -
-            <div>
-              {user.email}
-            </div>
-          </div>
-        )
-      })}
-    </>
-  );
+  return <RouterProvider router={router} />;
 }
 
 export default App;
