@@ -68,7 +68,7 @@ function FetchingDataWithHook() {
       {!loading && error.error && (
         <div style={{ textAlign: "center", color: "#dc2626" }}>Loi: {error.message}</div>
       )}
-
+ 
       {!loading && !error.error && (
         <>
           <h2 style={{ margin: "0 0 12px", color: "#1f2937" }}>User List</h2>

@@ -8,7 +8,7 @@ function useFetchUsers() {
   const fetchUsers = async (userId = "") => {
     setLoading(true);
     try {
-      const res = await fetch(`https://jsonplaceholder.typicode.com/users/${userId}`);
+      const res = await fetch(`https://jsonplaceholder.typicode.com/users/userId`);
       if (!res.ok) throw new Error("Khong the tai du lieu");
 
       const data = await res.json();
