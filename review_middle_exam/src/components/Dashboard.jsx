@@ -26,7 +26,9 @@ function Dashboard() {
         <Link to="/dashboard/fetching-data-hook">Fetching Data Hook</Link> |{" "}
         <Link to="/dashboard/memo-demo">React.memo Demo</Link> |{" "}
         <Link to="/dashboard/usememo-search-users">useMemo Search Users</Link> |{" "}
-        <Link to="/dashboard/usecallback-demo">useCallback Demo</Link>
+        <Link to="/dashboard/usecallback-demo">useCallback Demo</Link>|{" "}
+        <Link to="/dashboard/user-filter">User filter</Link>|{" "}
+        <Link to="/dashboard/user-posts">User posts</Link>
       </nav>
 
       <div

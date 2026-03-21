@@ -23,6 +23,8 @@ import FetchingDataWithHook from './components/FetchingDataWithHook';
 import MemoDemo from './components/MemoDemo';
 import UseMemoUserSearch from './components/UseMemoUserSearch';
 import UseCallbackDemo from './components/UseCallbackDemo';
+import UserFilter from './components/UserFilter';
+import UserPosts from './components/UserPosts';
 
 const router = createBrowserRouter([
   {
@@ -93,6 +95,14 @@ const router = createBrowserRouter([
         path: "usecallback-demo",
         element: <UseCallbackDemo />,
       },
+      {
+        path: "user-filter",
+        element: <UserFilter />,
+      },
+      {
+        path: "user-posts",
+        element: <UserPosts />,
+      }
     ],
   },
 ]);
