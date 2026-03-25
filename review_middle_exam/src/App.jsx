@@ -25,6 +25,7 @@ import UseMemoUserSearch from './components/UseMemoUserSearch';
 import UseCallbackDemo from './components/UseCallbackDemo';
 import UserFilter from './components/UserFilter';
 import UserPosts from './components/UserPosts';
+import UserPostsMemo from './components/UserPostsMemo';
 
 const router = createBrowserRouter([
   {
@@ -102,6 +103,10 @@ const router = createBrowserRouter([
       {
         path: "user-posts",
         element: <UserPosts />,
+      },
+      {
+        path: "user-posts-memo",
+        element: <UserPostsMemo />,
       }
     ],
   },

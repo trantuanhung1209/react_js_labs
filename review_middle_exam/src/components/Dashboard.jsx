@@ -28,7 +28,8 @@ function Dashboard() {
         <Link to="/dashboard/usememo-search-users">useMemo Search Users</Link> |{" "}
         <Link to="/dashboard/usecallback-demo">useCallback Demo</Link>|{" "}
         <Link to="/dashboard/user-filter">User filter</Link>|{" "}
-        <Link to="/dashboard/user-posts">User posts</Link>
+        <Link to="/dashboard/user-posts">User posts</Link>|{" "}
+        <Link to="/dashboard/user-posts-memo">User posts (with useMemo)</Link>
       </nav>
 
       <div

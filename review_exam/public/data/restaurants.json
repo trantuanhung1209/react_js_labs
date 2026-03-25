@@ -1,0 +1,110 @@
+[
+  {
+    "id": 1,
+    "name": "Pizza House",
+    "image": "https://play-lh.googleusercontent.com/DA8mUnw_7b1fakyunvMvzPgxXuBghi5SoLhgcXZe4qUdlxR7UQDO454BL9AYi6oDrC8",
+    "cuisine": "Italian",
+    "rating": 4.5,
+    "priceRange": "$$",
+    "status": "open"
+  },
+  {
+    "id": 2,
+    "name": "Sushi World",
+    "image": "https://play-lh.googleusercontent.com/DA8mUnw_7b1fakyunvMvzPgxXuBghi5SoLhgcXZe4qUdlxR7UQDO454BL9AYi6oDrC8",
+    "cuisine": "Japanese",
+    "rating": 4.8,
+    "priceRange": "$$$",
+    "status": "closed"
+  },
+  {
+    "id": 3,
+    "name": "Burger King",
+    "image": "https://play-lh.googleusercontent.com/DA8mUnw_7b1fakyunvMvzPgxXuBghi5SoLhgcXZe4qUdlxR7UQDO454BL9AYi6oDrC8",
+    "cuisine": "Fast Food",
+    "rating": 4.0,
+    "priceRange": "$",
+    "status": "open"
+  },
+  {
+    "id": 4,
+    "name": "Pho Viet",
+    "image": "https://play-lh.googleusercontent.com/DA8mUnw_7b1fakyunvMvzPgxXuBghi5SoLhgcXZe4qUdlxR7UQDO454BL9AYi6oDrC8",
+    "cuisine": "Vietnamese",
+    "rating": 4.7,
+    "priceRange": "$",
+    "status": "open"
+  },
+  {
+    "id": 5,
+    "name": "Dragon Hotpot",
+    "image": "https://play-lh.googleusercontent.com/DA8mUnw_7b1fakyunvMvzPgxXuBghi5SoLhgcXZe4qUdlxR7UQDO454BL9AYi6oDrC8",
+    "cuisine": "Chinese",
+    "rating": 4.3,
+    "priceRange": "$$",
+    "status": "closed"
+  },
+  {
+    "id": 6,
+    "name": "BBQ Garden",
+    "image": "https://play-lh.googleusercontent.com/DA8mUnw_7b1fakyunvMvzPgxXuBghi5SoLhgcXZe4qUdlxR7UQDO454BL9AYi6oDrC8",
+    "cuisine": "Korean",
+    "rating": 4.6,
+    "priceRange": "$$$",
+    "status": "open"
+  },
+  {
+    "id": 7,
+    "name": "Taco Fiesta",
+    "image": "https://play-lh.googleusercontent.com/DA8mUnw_7b1fakyunvMvzPgxXuBghi5SoLhgcXZe4qUdlxR7UQDO454BL9AYi6oDrC8",
+    "cuisine": "Mexican",
+    "rating": 4.2,
+    "priceRange": "$$",
+    "status": "closed"
+  },
+  {
+    "id": 8,
+    "name": "Curry Palace",
+    "image": "https://play-lh.googleusercontent.com/DA8mUnw_7b1fakyunvMvzPgxXuBghi5SoLhgcXZe4qUdlxR7UQDO454BL9AYi6oDrC8",
+    "cuisine": "Indian",
+    "rating": 4.4,
+    "priceRange": "$$",
+    "status": "open"
+  },
+  {
+    "id": 9,
+    "name": "Seafood Bay",
+    "image": "https://play-lh.googleusercontent.com/DA8mUnw_7b1fakyunvMvzPgxXuBghi5SoLhgcXZe4qUdlxR7UQDO454BL9AYi6oDrC8",
+    "cuisine": "Seafood",
+    "rating": 4.9,
+    "priceRange": "$$$",
+    "status": "open"
+  },
+  {
+    "id": 10,
+    "name": "Green Vegan",
+    "image": "https://play-lh.googleusercontent.com/DA8mUnw_7b1fakyunvMvzPgxXuBghi5SoLhgcXZe4qUdlxR7UQDO454BL9AYi6oDrC8",
+    "cuisine": "Vegan",
+    "rating": 4.3,
+    "priceRange": "$$",
+    "status": "closed"
+  },
+  {
+    "id": 11,
+    "name": "French Delight",
+    "image": "https://play-lh.googleusercontent.com/DA8mUnw_7b1fakyunvMvzPgxXuBghi5SoLhgcXZe4qUdlxR7UQDO454BL9AYi6oDrC8",
+    "cuisine": "French",
+    "rating": 4.7,
+    "priceRange": "$$$",
+    "status": "open"
+  },
+  {
+    "id": 12,
+    "name": "Thai Spice",
+    "image": "https://play-lh.googleusercontent.com/DA8mUnw_7b1fakyunvMvzPgxXuBghi5SoLhgcXZe4qUdlxR7UQDO454BL9AYi6oDrC8",
+    "cuisine": "Thai",
+    "rating": 4.5,
+    "priceRange": "$$",
+    "status": "open"
+  }
+]

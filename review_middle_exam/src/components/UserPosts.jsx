@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 function UserPosts() {
     const [posts, setPosts] = useState([]);
     const [postsHandle, setPostsHandle] = useState([]);
+    
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState({ error: false, message: "" });
 
