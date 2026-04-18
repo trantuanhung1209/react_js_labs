@@ -1,4 +1,6 @@
 body {
-  width: 1280px;
+
+  width: 1280;
   margin: 0 auto;
+  overflow-x: hidden;
 }

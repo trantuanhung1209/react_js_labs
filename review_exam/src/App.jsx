@@ -1,170 +1,113 @@
-import {
-  useCallback,
-  useEffect,
-  useMemo,
-  useRef,
-  useState,
-  memo,
-} from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import "./App.css";
+import ListCard from "./assets/components/ListCard";
 
-/* ================= SEARCH ================= */
-const SearchBar = memo(({ search, onSearch, inputRef }) => {
-  console.log("Render SearchBar");
-  return (
-    <input
-      type="text"
-      placeholder="search title..."
-      value={search}
-      ref={inputRef}
-      onChange={onSearch}
-    />
-  );
-});
-
-/* ================= FILTER ================= */
-const Filter = memo(({ category, categories, onFilter }) => {
-  console.log("Render Filter");
-  return (
-    <select value={category} onChange={onFilter}>
-      <option value="all">all</option>
-      {categories.map((item, index) => (
-        <option key={index} value={item}>
-          {item}
-        </option>
-      ))}
-    </select>
-  );
-});
-
-/* ================= CARD ITEM ================= */
-const RestaurantCard = memo(({ res }) => {
-  console.log("Render Card:", res.name);
-  return (
-    <div className="card">
-      <div className="image">
-        <img src={res.image} alt={res.name} />
-      </div>
-      <div>{res.name}</div>
-      <div>{res.cuisine}</div>
-      <div>⭐ {res.rating}</div>
-      <div>{res.status}</div>
-    </div>
-  );
-});
-
-/* ================= LIST ================= */
-const RestaurantList = memo(({ data }) => {
-  console.log("Render List");
-  return (
-    <div
-      style={{
-        display: "flex",
-        gap: "20px",
-        flexWrap: "wrap",
-        justifyContent: "space-around"
-      }}
-    >
-      {data.map((res) => (
-        <RestaurantCard key={res.id} res={res} />
-      ))}
-    </div>
-  );
-});
-
-/* ================= MAIN ================= */
 function App() {
-  const [restaurants, setRestaurants] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
-
+  const inputRef = useRef();
   const [search, setSearch] = useState("");
   const [category, setCategory] = useState("all");
-
-  const inputRef = useRef();
 
   const fetchData = async () => {
     setLoading(true);
     setError("");
 
     try {
-      const res = await fetch(`/data/restaurants.json`);
-      if (!res.ok) throw new Error("Không thể tải dữ liệu");
+      const res = await fetch("/data/restaurants.json");
+      if (!res.ok) {
+        throw new Error("Không thể tải dữ liệu");
+      }
+      const dataJson = await res.json();
+      const dataNormalized = Array.isArray(dataJson) ? dataJson : [dataJson];
+      console.log(dataJson);
 
-      const data = await res.json();
-      setRestaurants(Array.isArray(data) ? data : [data]);
-    } catch (err) {
-      setError(err.message || "Đã xảy ra lỗi");
+      setData(dataNormalized);
+    } catch (error) {
+      setError(error.message || "Đã xảy ra lỗi");
     } finally {
       setLoading(false);
     }
   };
 
   useEffect(() => {
-    fetchData();
+    setLoading(true);
+    setTimeout(() => {
+      fetchData();
+    }, 300);
     inputRef.current.focus();
   }, []);
 
   const categories = useMemo(() => {
-    return [...new Set(restaurants.map((res) => res.status))];
-  }, [restaurants]);
+    return ["all", ...new Set(data.map((res) => res.status))];
+  }, [data])
 
-  const handleSearch = useCallback((e) => {
-    setSearch(e.target.value);
-  }, []);
+  const handleSearch = (e) => {
+    const value = e.target.value;
+    setSearch(value);
+  }
 
-  const handleFilter = useCallback((e) => {
-    setCategory(e.target.value);
-  }, []);
+  const handleFilter = (e) => {
+    const value = e.target.value;
+    setCategory(value);
+  }
 
-  const resFilter = useMemo(() => {
-    return restaurants
-      .filter((res) =>
-        res.name.toLowerCase().includes(search.toLowerCase())
-      )
-      .filter((res) => {
-        if (category === "all") return true;
-        return res.status === category;
-      });
-  }, [restaurants, search, category]);
+  const dataFiltered = useMemo(() => {
+    return data
+    .filter((item) => item.name.toLowerCase().includes(search.toLowerCase()) || item.cuisine.toLowerCase().includes(search.toLowerCase()))
+    .filter((item) => category === "all" ? true : item.status === category);
+  }, [data, search, category])
 
   return (
-    <div>
-      <h2 style={{ textAlign: "center" }}>Restaurant List</h2>
+    <>
+      <div className="main">
+        <div className="inner-content">
+          <h1
+            style={{
+              textAlign: "center",
+              marginBottom: "40px",
+            }}
+          >
+            List products
+          </h1>
 
-      <form
-        style={{
-          display: "flex",
-          gap: "8px",
-          justifyContent: "center",
-          marginBottom: "16px",
-        }}
-      >
-        <SearchBar
-          search={search}
-          onSearch={handleSearch}
-          inputRef={inputRef}
-        />
+          <form style={{
+            marginBottom: "20px",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            gap: "20px"
+          }}>
+            <input type="text" value={search}
+            placeholder="search name..."
+            ref={inputRef} 
+            onChange={handleSearch}
+            />
+            <select value={category} onChange={handleFilter}>
+              {categories.map((item, idx) => (
+                <option value={item} key={idx}>{item}</option>
+              ))}
+            </select>
+          </form>
 
-        <Filter
-          category={category}
-          categories={categories}
-          onFilter={handleFilter}
-        />
-      </form>
+          {loading && <div>Loading restaurants...</div>}
 
-      {loading && <div>Loading restaurants...</div>}
+          {!loading && error && (
+            <div style={{ color: "red" }}>Cannot load restaurants</div>
+          )}
 
-      {!loading && error && (
-        <div style={{ color: "red" }}>Cannot load restaurants</div>
-      )}
-
-      {!loading && !error && <RestaurantList data={resFilter} />}
-    </div>
+          {!loading && !error && (
+            <ListCard data={dataFiltered} />
+          )}
+        </div>
+      </div>
+    </>
   );
 }
 
 export default App;
+
 
 //Để giữ reference của function, tránh re-render không cần thiết khi truyền xuống component con (kết hợp React.memo).
 
