@@ -26,7 +26,7 @@ const AboutUsPage = ({ onGoHome }) => {
               </p>
             </div>
             <img 
-              src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&h=300&fit=crop"
+              src="/images/3_Data/Lab_03/five_color_salad.png"
               alt="Mission"
               className="rounded-lg shadow-lg"
             />
@@ -76,10 +76,10 @@ const AboutUsPage = ({ onGoHome }) => {
           <h2 className="text-3xl font-bold text-gray-900 mb-6">Meet the Team</h2>
           <div className="grid md:grid-cols-4 gap-6">
             {[
-              { name: 'Sarah Johnson', role: 'Founder & CEO', image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&h=200&fit=crop' },
-              { name: 'Michael Chen', role: 'Head Chef', image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&h=200&fit=crop' },
-              { name: 'Emma Davis', role: 'Food Writer', image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200&h=200&fit=crop' },
-              { name: 'Alex Rodriguez', role: 'Tech Lead', image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&h=200&fit=crop' },
+              { name: 'Sarah Johnson', role: 'Founder & CEO', image: '/images/3_Data/Lab_03/avatar.png' },
+              { name: 'Michael Chen', role: 'Head Chef', image: '/images/3_Data/Lab_03/avatar.png' },
+              { name: 'Emma Davis', role: 'Food Writer', image: '/images/3_Data/Lab_03/avatar_small.png' },
+              { name: 'Alex Rodriguez', role: 'Tech Lead', image: '/images/3_Data/Lab_03/avatar.png' },
             ].map((member, idx) => (
               <div key={idx} className="text-center">
                 <img 

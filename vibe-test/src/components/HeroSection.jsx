@@ -6,7 +6,7 @@ export default function HeroSection() {
         className="absolute inset-0 bg-cover bg-center"
         style={{
           backgroundImage:
-            'url("https://images.unsplash.com/photo-1556910103-2bae2559c799?w=1200&h=600&fit=crop")',
+            'url("/images/3_Data/Lab_03/lotus_delight_salad.png")',
         }}
       />
 

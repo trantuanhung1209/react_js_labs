@@ -59,44 +59,44 @@ const OccasionsPage = ({ onViewRecipe, onGoHome }) => {
 
   const recipesData = {
     all: [
-      { id: 1, title: 'Chocolate Cake', occasion: 'birthday', image: 'https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=400&h=300&fit=crop' },
-      { id: 2, title: 'Elegant Salmon', occasion: 'wedding', image: 'https://images.unsplash.com/photo-1580959375944-abd7e991f971?w=400&h=300&fit=crop' },
-      { id: 3, title: 'Beef Filet Mignon', occasion: 'dinner', image: 'https://images.unsplash.com/photo-1568043666747-3b7e2a5f7b1a?w=400&h=300&fit=crop' },
-      { id: 4, title: 'Turkey Dinner', occasion: 'holiday', image: 'https://images.unsplash.com/photo-1555939594-58d7cb561081?w=400&h=300&fit=crop' },
-      { id: 5, title: 'Picnic Sandwiches', occasion: 'picnic', image: 'https://images.unsplash.com/photo-1481070414801-51fd1d529d5b?w=400&h=300&fit=crop' },
-      { id: 6, title: 'Brunch Pancakes', occasion: 'brunch', image: 'https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=400&h=300&fit=crop' },
-      { id: 7, title: 'Pasta for Two', occasion: 'date', image: 'https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?w=400&h=300&fit=crop' },
-      { id: 8, title: 'Tiramisu', occasion: 'birthday', image: 'https://images.unsplash.com/photo-1571115177098-24ec42ed204d?w=400&h=300&fit=crop' },
-      { id: 9, title: 'Gourmet Appetizers', occasion: 'dinner', image: 'https://images.unsplash.com/photo-1568043666747-3b7e2a5f7b1a?w=400&h=300&fit=crop' },
-      { id: 10, title: 'Holiday Cookies', occasion: 'holiday', image: 'https://images.unsplash.com/photo-1548365328-c9fa89d128fa?w=400&h=300&fit=crop' },
-      { id: 11, title: 'Cold Salads', occasion: 'picnic', image: 'https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?w=400&h=300&fit=crop' },
-      { id: 12, title: 'Eggs Benedict', occasion: 'brunch', image: 'https://images.unsplash.com/photo-1541519227354-08fa5d50c44d?w=400&h=300&fit=crop' },
+      { id: 1, title: 'Snack Cakes', occasion: 'birthday', image: '/images/3_Data/Lab_03/Snack cakes.png' },
+      { id: 2, title: 'Vegetable & Shrimp', occasion: 'wedding', image: '/images/3_Data/Lab_03/Vegetable and shrimp spaghetti.png' },
+      { id: 3, title: 'Italian-style Tomato', occasion: 'dinner', image: '/images/3_Data/Lab_03/Italian-style tomato.png' },
+      { id: 4, title: 'Bean & Shrimp Salad', occasion: 'holiday', image: '/images/3_Data/Lab_03/Bean, shrimp, and potato salad.png' },
+      { id: 5, title: 'Cucumber Salad', occasion: 'picnic', image: '/images/3_Data/Lab_03/cucumber_salad_charry_tomatoes.png' },
+      { id: 6, title: 'Sunny-side up Eggs', occasion: 'brunch', image: '/images/3_Data/Lab_03/Sunny-side up fried eggs.png' },
+      { id: 7, title: 'Italian Tomato Pasta', occasion: 'date', image: '/images/3_Data/Lab_03/italian_style_tomato_salad.png' },
+      { id: 8, title: 'Lotus Delight', occasion: 'birthday', image: '/images/3_Data/Lab_03/lotus_delight_salad.png' },
+      { id: 9, title: 'Avocado Salad', occasion: 'dinner', image: '/images/3_Data/Lab_03/avacador_salad.png' },
+      { id: 10, title: 'Corn Salad', occasion: 'holiday', image: '/images/3_Data/Lab_03/corn_salad.png' },
+      { id: 11, title: 'Cabbage Salad', occasion: 'picnic', image: '/images/3_Data/Lab_03/salad_with_cabbage_and_shrimp.png' },
+      { id: 12, title: 'Five Color Salad', occasion: 'brunch', image: '/images/3_Data/Lab_03/five_color_salad.png' },
     ],
     birthday: [
-      { id: 1, title: 'Chocolate Cake', image: 'https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=400&h=300&fit=crop' },
-      { id: 8, title: 'Tiramisu', image: 'https://images.unsplash.com/photo-1571115177098-24ec42ed204d?w=400&h=300&fit=crop' },
+      { id: 1, title: 'Snack Cakes', image: '/images/3_Data/Lab_03/Snack cakes.png' },
+      { id: 8, title: 'Lotus Delight', image: '/images/3_Data/Lab_03/lotus_delight_salad.png' },
     ],
     wedding: [
-      { id: 2, title: 'Elegant Salmon', image: 'https://images.unsplash.com/photo-1580959375944-abd7e991f971?w=400&h=300&fit=crop' },
+      { id: 2, title: 'Vegetable & Shrimp', image: '/images/3_Data/Lab_03/Vegetable and shrimp spaghetti.png' },
     ],
     dinner: [
-      { id: 3, title: 'Beef Filet Mignon', image: 'https://images.unsplash.com/photo-1568043666747-3b7e2a5f7b1a?w=400&h=300&fit=crop' },
-      { id: 9, title: 'Gourmet Appetizers', image: 'https://images.unsplash.com/photo-1568043666747-3b7e2a5f7b1a?w=400&h=300&fit=crop' },
+      { id: 3, title: 'Italian-style Tomato', image: '/images/3_Data/Lab_03/Italian-style tomato.png' },
+      { id: 9, title: 'Avocado Salad', image: '/images/3_Data/Lab_03/avacador_salad.png' },
     ],
     holiday: [
-      { id: 4, title: 'Turkey Dinner', image: 'https://images.unsplash.com/photo-1555939594-58d7cb561081?w=400&h=300&fit=crop' },
-      { id: 10, title: 'Holiday Cookies', image: 'https://images.unsplash.com/photo-1548365328-c9fa89d128fa?w=400&h=300&fit=crop' },
+      { id: 4, title: 'Bean & Shrimp Salad', image: '/images/3_Data/Lab_03/Bean, shrimp, and potato salad.png' },
+      { id: 10, title: 'Corn Salad', image: '/images/3_Data/Lab_03/corn_salad.png' },
     ],
     picnic: [
-      { id: 5, title: 'Picnic Sandwiches', image: 'https://images.unsplash.com/photo-1481070414801-51fd1d529d5b?w=400&h=300&fit=crop' },
-      { id: 11, title: 'Cold Salads', image: 'https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?w=400&h=300&fit=crop' },
+      { id: 5, title: 'Cucumber Salad', image: '/images/3_Data/Lab_03/cucumber_salad_charry_tomatoes.png' },
+      { id: 11, title: 'Cabbage Salad', image: '/images/3_Data/Lab_03/salad_with_cabbage_and_shrimp.png' },
     ],
     brunch: [
-      { id: 6, title: 'Brunch Pancakes', image: 'https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=400&h=300&fit=crop' },
-      { id: 12, title: 'Eggs Benedict', image: 'https://images.unsplash.com/photo-1541519227354-08fa5d50c44d?w=400&h=300&fit=crop' },
+      { id: 6, title: 'Sunny-side up Eggs', image: '/images/3_Data/Lab_03/Sunny-side up fried eggs.png' },
+      { id: 12, title: 'Five Color Salad', image: '/images/3_Data/Lab_03/five_color_salad.png' },
     ],
     date: [
-      { id: 7, title: 'Pasta for Two', image: 'https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?w=400&h=300&fit=crop' },
+      { id: 7, title: 'Italian Tomato Pasta', image: '/images/3_Data/Lab_03/italian_style_tomato_salad.png' },
     ],
   };
 

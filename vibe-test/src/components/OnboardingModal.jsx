@@ -6,17 +6,17 @@ export default function OnboardingModal({ isOpen, onClose }) {
   const slides = [
     {
       image:
-        'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=800&h=600&fit=crop',
+        '/images/3_Data/Lab_03/five_color_salad.png',
       alt: 'Delicious dishes'
     },
     {
       image:
-        'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=800&h=600&fit=crop',
+        '/images/3_Data/Lab_03/lotus_delight_salad.png',
       alt: 'Chef preparing food'
     },
     {
       image:
-        'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=800&h=600&fit=crop',
+        '/images/3_Data/Lab_03/Bean, shrimp, and potato salad.png',
       alt: 'Cooking preparation'
     }
   ];

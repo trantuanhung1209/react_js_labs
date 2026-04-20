@@ -8,18 +8,18 @@ const RecipesPage = ({ onViewRecipe, onGoHome }) => {
   const { isSaved, toggleSave } = useSavedRecipes();
 
   const recipes = [
-    { id: 1, title: 'Caesar Salad', category: 'Salads', rating: 5, reviews: 120, image: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400&h=300&fit=crop' },
-    { id: 2, title: 'Grilled Chicken', category: 'Main Dishes', rating: 5, reviews: 95, image: 'https://images.unsplash.com/photo-1598103442097-8b74394b95c6?w=400&h=300&fit=crop' },
-    { id: 3, title: 'Pancakes', category: 'Breakfast', rating: 4.8, reviews: 150, image: 'https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=400&h=300&fit=crop' },
-    { id: 4, title: 'Chocolate Cake', category: 'Desserts', rating: 5, reviews: 200, image: 'https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=400&h=300&fit=crop' },
-    { id: 5, title: 'Pasta Carbonara', category: 'Main Dishes', rating: 4.9, reviews: 85, image: 'https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?w=400&h=300&fit=crop' },
-    { id: 6, title: 'Buddha Bowl', category: 'Salads', rating: 4.7, reviews: 110, image: 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=400&h=300&fit=crop' },
-    { id: 7, title: 'Salmon', category: 'Main Dishes', rating: 4.9, reviews: 75, image: 'https://images.unsplash.com/photo-1580959375944-abd7e991f971?w=400&h=300&fit=crop' },
-    { id: 8, title: 'Smoothie Bowl', category: 'Breakfast', rating: 4.8, reviews: 95, image: 'https://images.unsplash.com/photo-1590080876-1f0b3b1c1f00?w=400&h=300&fit=crop' },
-    { id: 9, title: 'Tiramisu', category: 'Desserts', rating: 5, reviews: 170, image: 'https://images.unsplash.com/photo-1571115177098-24ec42ed204d?w=400&h=300&fit=crop' },
-    { id: 10, title: 'Sushi', category: 'Main Dishes', rating: 4.9, reviews: 130, image: 'https://images.unsplash.com/photo-1579584425555-c3ce17fd4351?w=400&h=300&fit=crop' },
-    { id: 11, title: 'Caprese Salad', category: 'Salads', rating: 4.8, reviews: 80, image: 'https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?w=400&h=300&fit=crop' },
-    { id: 12, title: 'Brownies', category: 'Desserts', rating: 4.9, reviews: 165, image: 'https://images.unsplash.com/photo-1607623814075-e51df1bdc82f?w=400&h=300&fit=crop' },
+    { id: 1, title: 'Avocado Salad', category: 'Salads', rating: 5, reviews: 120, image: '/images/3_Data/Lab_03/avacador_salad.png' },
+    { id: 2, title: 'Vegetable & Shrimp', category: 'Main Dishes', rating: 5, reviews: 95, image: '/images/3_Data/Lab_03/Vegetable and shrimp spaghetti.png' },
+    { id: 3, title: 'Sunny-side up Eggs', category: 'Breakfast', rating: 4.8, reviews: 150, image: '/images/3_Data/Lab_03/Sunny-side up fried eggs.png' },
+    { id: 4, title: 'Snack Cakes', category: 'Desserts', rating: 5, reviews: 200, image: '/images/3_Data/Lab_03/Snack cakes.png' },
+    { id: 5, title: 'Italian-style Tomato', category: 'Main Dishes', rating: 4.9, reviews: 85, image: '/images/3_Data/Lab_03/Italian-style tomato.png' },
+    { id: 6, title: 'Five Color Salad', category: 'Salads', rating: 4.7, reviews: 110, image: '/images/3_Data/Lab_03/five_color_salad.png' },
+    { id: 7, title: 'Bean & Shrimp Salad', category: 'Main Dishes', rating: 4.9, reviews: 75, image: '/images/3_Data/Lab_03/Bean, shrimp, and potato salad.png' },
+    { id: 8, title: 'Cucumber Salad', category: 'Breakfast', rating: 4.8, reviews: 95, image: '/images/3_Data/Lab_03/cucumber_salad_charry_tomatoes.png' },
+    { id: 9, title: 'Lotus Delight', category: 'Desserts', rating: 5, reviews: 170, image: '/images/3_Data/Lab_03/lotus_delight_salad.png' },
+    { id: 10, title: 'Potato Salad', category: 'Main Dishes', rating: 4.9, reviews: 130, image: '/images/3_Data/Lab_03/Potato Salad.png' },
+    { id: 11, title: 'Cabbage Salad', category: 'Salads', rating: 4.8, reviews: 80, image: '/images/3_Data/Lab_03/salad_with_cabbage_and_shrimp.png' },
+    { id: 12, title: 'Italian Tomato Salad', category: 'Desserts', rating: 4.9, reviews: 165, image: '/images/3_Data/Lab_03/italian_style_tomato_salad.png' },
   ];
 
   const filteredRecipes = useMemo(() => {

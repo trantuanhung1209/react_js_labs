@@ -155,22 +155,22 @@ function App() {
   // Sample data for "This Summer Recipes"
   const summerRecipes = [
     {
-      image: 'https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?w=400&h=300&fit=crop',
+      image: '/images/3_Data/Lab_03/Italian-style tomato.png',
       title: 'Italian-style tomato pasta',
       duration: '20 minutes'
     },
     {
-      image: 'https://images.unsplash.com/photo-1612874742237-415c69f18133?w=400&h=300&fit=crop',
+      image: '/images/3_Data/Lab_03/Vegetable and shrimp spaghetti.png',
       title: 'Spaghetti with vegetables and shrimp',
       duration: '25 minutes'
     },
     {
-      image: 'https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?w=400&h=300&fit=crop',
+      image: '/images/3_Data/Lab_03/lotus_delight_salad.png',
       title: 'Lotus delight salad',
       duration: '15 minutes'
     },
     {
-      image: 'https://images.unsplash.com/photo-1599599810694-b5ac4dd64b39?w=400&h=300&fit=crop',
+      image: '/images/3_Data/Lab_03/Snack cakes.png',
       title: 'Snack cakes',
       duration: '30 minutes'
     }
@@ -179,22 +179,22 @@ function App() {
   // Sample data for "Recipes With Videos"
   const videoRecipes = [
     {
-      image: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400&h=300&fit=crop',
+      image: '/images/3_Data/Lab_03/salad_with_cabbage_and_shrimp.png',
       title: 'Salad with cabbage and shrimp',
       duration: '20 minutes'
     },
     {
-      image: 'https://images.unsplash.com/photo-1555939594-58d7cb561081?w=400&h=300&fit=crop',
+      image: '/images/3_Data/Lab_03/Bean, shrimp, and potato salad.png',
       title: 'Salad of cove beans, shrimp and potatoes',
       duration: '25 minutes'
     },
     {
-      image: 'https://images.unsplash.com/photo-1478097143696-c6838f899bdd?w=400&h=300&fit=crop',
+      image: '/images/3_Data/Lab_03/Sunny-side up fried eggs.png',
       title: 'Sunny-side up fried egg',
       duration: '10 minutes'
     },
     {
-      image: 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=400&h=300&fit=crop',
+      image: '/images/3_Data/Lab_03/Lotus delight salad_01.png',
       title: 'Lotus delight salad',
       duration: '18 minutes'
     }
@@ -203,32 +203,32 @@ function App() {
   // Sample data for "Editor's Pick"
   const editorPicks = [
     {
-      image: 'https://images.unsplash.com/photo-1595521624819-38d82b30b91c?w=400&h=300&fit=crop',
-      title: 'Stuffed sticky rice ball',
+      image: '/images/3_Data/Lab_03/avacador_salad.png',
+      title: 'Avocado Salad',
       chef: 'Jennifer King',
-      avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop',
-      description: 'A beloved Asian delicacy, sticky rice balls filled with chewy glutinous rice and a flavorful surprise filling.'
+      avatar: '/images/3_Data/Lab_03/avatar.png',
+      description: 'Fresh and creamy avocado salad with seasonal vegetables and a light vinaigrette dressing.'
     },
     {
-      image: 'https://images.unsplash.com/photo-1590373917057-6811acbb519f?w=400&h=300&fit=crop',
-      title: 'Strawberry smoothie',
+      image: '/images/3_Data/Lab_03/corn_salad.png',
+      title: 'Corn Salad',
       chef: 'Matthew Martinez',
-      avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop',
-      description: 'Refreshing blend of fresh strawberries and creamy yogurt with a touch of honey for a delicious smoothie.'
+      avatar: '/images/3_Data/Lab_03/avatar_small.png',
+      description: 'Delicious corn salad with fresh vegetables and a tangy lime dressing for a refreshing meal.'
     },
     {
-      image: 'https://images.unsplash.com/photo-1517668808822-9ebb02ae2a0e?w=400&h=300&fit=crop',
-      title: 'Latte Art',
+      image: '/images/3_Data/Lab_03/cucumber_salad_charry_tomatoes.png',
+      title: 'Cucumber & Cherry Tomato Salad',
       chef: 'Sarah Hill',
-      avatar: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop',
-      description: 'Latte art is the skillful craft of creating captivating designs on the surface of a latte.'
+      avatar: '/images/3_Data/Lab_03/avatar.png',
+      description: 'Light and crisp cucumber salad with cherry tomatoes and a fresh herb dressing.'
     },
     {
-      image: 'https://images.unsplash.com/photo-1567521464027-f127ff144326?w=400&h=300&fit=crop',
-      title: 'Butter fried noodles',
+      image: '/images/3_Data/Lab_03/five_color_salad.png',
+      title: 'Five Color Salad',
       chef: 'Julia Lopez',
-      avatar: 'https://images.unsplash.com/photo-1539571696357-5a69c3a01e0a?w=100&h=100&fit=crop',
-      description: 'Butter fried noodles. Tasty noodles cooked in butter for a delicious and satisfying meal.'
+      avatar: '/images/3_Data/Lab_03/avatar_small.png',
+      description: 'Vibrant mix of colorful vegetables and fresh ingredients for a nutritious and delicious meal.'
     }
   ];
 
@@ -253,6 +253,7 @@ function App() {
           
           {/* Header - Shared across all pages */}
           <Header 
+            currentPage={currentPage}
             onLoginClick={() => setIsLoginModalOpen(true)}
             onSearch={handleSearch}
             onGoHome={handleGoHome}

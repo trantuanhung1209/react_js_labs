@@ -134,7 +134,7 @@ export default function LoginModal({ isOpen, onClose }) {
           }}
         >
           <img
-            src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=600&h=800&fit=crop"
+            src="/images/3_Data/Lab_03/Lotus delight salad_01.png"
             alt="Delicious food"
             className="w-full h-full object-cover"
           />

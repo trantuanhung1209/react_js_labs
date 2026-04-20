@@ -22,14 +22,14 @@ const IngredientsPage = ({ onViewRecipe, onGoHome }) => {
 
   // Mock recipe data based on selected ingredients
   const recipes = [
-    { id: 1, title: 'Grilled Chicken Caesar', ingredients: ['Chicken', 'Lettuce', 'Cheese'], image: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400&h=300&fit=crop' },
-    { id: 2, title: 'Salmon with Lemon', ingredients: ['Salmon', 'Lemon', 'Olive Oil'], image: 'https://images.unsplash.com/photo-1580959375944-abd7e991f971?w=400&h=300&fit=crop' },
-    { id: 3, title: 'Shrimp Fried Rice', ingredients: ['Shrimp', 'Rice', 'Egg'], image: 'https://images.unsplash.com/photo-1609501676725-7186f017a4b8?w=400&h=300&fit=crop' },
-    { id: 4, title: 'Tomato Pasta', ingredients: ['Pasta', 'Tomato', 'Garlic', 'Olive Oil'], image: 'https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?w=400&h=300&fit=crop' },
-    { id: 5, title: 'Vegetable Stir Fry', ingredients: ['Broccoli', 'Carrot', 'Garlic', 'Onion'], image: 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=400&h=300&fit=crop' },
-    { id: 6, title: 'Strawberry Cheesecake', ingredients: ['Strawberry', 'Cheese', 'Chocolate'], image: 'https://images.unsplash.com/photo-1535920527894-b400150fecee?w=400&h=300&fit=crop' },
-    { id: 7, title: 'Chicken Sandwich', ingredients: ['Chicken', 'Bread', 'Lettuce', 'Tomato'], image: 'https://images.unsplash.com/photo-1481070414801-51fd1d529d5b?w=400&h=300&fit=crop' },
-    { id: 8, title: 'Spinach Egg Omelet', ingredients: ['Egg', 'Spinach', 'Butter', 'Cheese'], image: 'https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=400&h=300&fit=crop' },
+    { id: 1, title: 'Avocado Salad', ingredients: ['Avocado', 'Lettuce', 'Cheese'], image: '/images/3_Data/Lab_03/avacador_salad.png' },
+    { id: 2, title: 'Corn Salad', ingredients: ['Corn', 'Tomato', 'Olive Oil'], image: '/images/3_Data/Lab_03/corn_salad.png' },
+    { id: 3, title: 'Shrimp & Bean Salad', ingredients: ['Shrimp', 'Bean', 'Potato'], image: '/images/3_Data/Lab_03/Bean, shrimp, and potato salad.png' },
+    { id: 4, title: 'Italian-style Tomato', ingredients: ['Pasta', 'Tomato', 'Garlic', 'Olive Oil'], image: '/images/3_Data/Lab_03/Italian-style tomato.png' },
+    { id: 5, title: 'Five Color Salad', ingredients: ['Vegetable', 'Carrot', 'Garlic', 'Onion'], image: '/images/3_Data/Lab_03/five_color_salad.png' },
+    { id: 6, title: 'Sunny-side up Eggs', ingredients: ['Egg', 'Cheese', 'Butter'], image: '/images/3_Data/Lab_03/Sunny-side up fried eggs.png' },
+    { id: 7, title: 'Cabbage & Shrimp', ingredients: ['Cabbage', 'Shrimp', 'Lettuce', 'Tomato'], image: '/images/3_Data/Lab_03/salad_with_cabbage_and_shrimp.png' },
+    { id: 8, title: 'Cucumber Salad', ingredients: ['Cucumber', 'Tomato', 'Butter', 'Cheese'], image: '/images/3_Data/Lab_03/cucumber_salad_charry_tomatoes.png' },
   ];
 
   const filteredRecipes = useMemo(() => {

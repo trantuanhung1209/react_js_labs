@@ -45,40 +45,40 @@ const CookingGuidePage = ({ recipe, onBack }) => {
     {
       number: 1,
       title: 'Prepare the base',
-      description: 'Preheat oven to 350°F and grease a 9-inch round baking pan. In a large mixing bowl, whisk together the flour, sugar, baking powder, and salt.',
-      image: 'https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=400&h=250&fit=crop'
+      description: 'Prepare all ingredients and equipment. In a large mixing bowl, gather the main ingredients and organize your workspace for efficient cooking.',
+      image: '/images/3_Data/Lab_03/Snack cakes.png'
     },
     {
       number: 2,
-      title: 'Mix wet ingredients',
-      description: 'In a separate bowl, whisk the eggs, milk, vanilla extract, and melted butter together. Pour the wet mixture into the dry ingredients and stir until just combined.',
-      image: 'https://images.unsplash.com/photo-1606312619070-d48b4c652a52?w=400&h=250&fit=crop'
+      title: 'Mix ingredients',
+      description: 'Combine all ingredients according to the recipe requirements. Mix thoroughly until the consistency is uniform and all components are well incorporated.',
+      image: '/images/3_Data/Lab_03/Italian-style tomato.png'
     },
     {
       number: 3,
-      title: 'Bake the cake',
-      description: 'Pour the batter into the prepared baking pan. Bake for 25-30 minutes, or until a toothpick inserted in the center comes out clean. Let cool completely.',
-      image: 'https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=400&h=250&fit=crop'
+      title: 'Cook the dish',
+      description: 'Apply heat as required by the recipe. Monitor cooking time carefully and ensure the dish is cooked to perfection with proper coloring and texture.',
+      image: '/images/3_Data/Lab_03/Vegetable and shrimp spaghetti.png'
     },
     {
       number: 4,
-      title: 'Prepare filling',
-      description: 'In a large bowl, beat heavy cream with powdered sugar and vanilla extract until stiff peaks form. Fold in diced strawberries gently.',
-      image: 'https://images.unsplash.com/photo-1606312619070-d48b4c652a52?w=400&h=250&fit=crop'
+      title: 'Prepare finishing touches',
+      description: 'Add any final ingredients, seasonings, or garnishes. Make sure all elements are properly combined for the best presentation.',
+      image: '/images/3_Data/Lab_03/Bean, shrimp, and potato salad.png'
     },
     {
       number: 5,
-      title: 'Assemble and serve',
-      description: 'Slice the cooled cake horizontally into two layers. Spread the strawberry cream filling between the layers and on top. Garnish with fresh strawberries.',
-      image: 'https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=400&h=250&fit=crop'
+      title: 'Serve and enjoy',
+      description: 'Plate the dish attractively and serve immediately while fresh. Enjoy your culinary creation with family and friends!',
+      image: '/images/3_Data/Lab_03/lotus_delight_salad.png'
     }
   ];
 
   const recentlyViewed = [
-    { id: 1, title: 'Caesar salad with chicken', image: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=150&h=150&fit=crop' },
-    { id: 2, title: 'Garlic and herb chicken pasta', image: 'https://images.unsplash.com/photo-1621996346565-431f63602f41?w=150&h=150&fit=crop' },
-    { id: 3, title: 'Creamy dill fried egg', image: 'https://images.unsplash.com/photo-1541519227354-08fa5d50c44d?w=150&h=150&fit=crop' },
-    { id: 4, title: 'Lemon beef salad', image: 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=150&h=150&fit=crop' }
+    { id: 1, title: 'Salad with cabbage and shrimp', image: '/images/3_Data/Lab_03/salad_with_cabbage_and_shrimp.png' },
+    { id: 2, title: 'Avocado Salad', image: '/images/3_Data/Lab_03/avacador_salad.png' },
+    { id: 3, title: 'Sunny-side up fried eggs', image: '/images/3_Data/Lab_03/Sunny-side up fried eggs.png' },
+    { id: 4, title: 'Corn Salad', image: '/images/3_Data/Lab_03/corn_salad.png' }
   ];
 
   return (
@@ -140,7 +140,7 @@ const CookingGuidePage = ({ recipe, onBack }) => {
             {/* Recipe Image */}
             <div className="ml-8 hidden lg:block">
               <img 
-                src={recipe?.image || 'https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=350&h=250&fit=crop'} 
+                src={recipe?.image || '/images/3_Data/Lab_03/Snack cakes.png'} 
                 alt={recipe?.title}
                 className="w-80 h-56 object-cover rounded-lg"
               />

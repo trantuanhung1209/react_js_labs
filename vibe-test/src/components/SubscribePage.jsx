@@ -104,7 +104,7 @@ export default function SubscribePage({ onGoHome }) {
           {/* Right Image */}
           <div className="hidden lg:block">
             <img
-              src="https://images.unsplash.com/photo-1495521821757-a1efb6729352?w=600&h=500&fit=crop"
+              src="/images/3_Data/Lab_03/avacador_salad.png"
               alt="Cooking"
               className="rounded-2xl shadow-2xl w-full h-96 object-cover"
             />

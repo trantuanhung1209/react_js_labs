@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useAuth } from '../context/useAuth';
 
 export default function Header({ 
+  currentPage,
   onLoginClick, 
   onSearch, 
   onGoHome, 
@@ -71,19 +72,54 @@ export default function Header({
 
         {/* Navigation */}
         <nav className="hidden md:flex items-center gap-6 mr-6">
-          <button onClick={onGoToWhatToCook} className="text-gray-700 text-sm hover:text-pink-500 transition">
+          <button 
+            onClick={onGoToWhatToCook} 
+            className={`text-sm font-medium transition pb-1 ${ 
+              currentPage === 'whatToCook' 
+                ? 'text-pink-500 border-b-2 border-pink-500' 
+                : 'text-gray-700 hover:text-pink-500'
+            }`}
+          >
             What to cook
           </button>
-          <button onClick={onGoToRecipes} className="text-gray-700 text-sm hover:text-pink-500 transition">
+          <button 
+            onClick={onGoToRecipes} 
+            className={`text-sm font-medium transition pb-1 ${
+              currentPage === 'recipes' 
+                ? 'text-pink-500 border-b-2 border-pink-500' 
+                : 'text-gray-700 hover:text-pink-500'
+            }`}
+          >
             Recipes
           </button>
-          <button onClick={onGoToIngredients} className="text-gray-700 text-sm hover:text-pink-500 transition">
+          <button 
+            onClick={onGoToIngredients} 
+            className={`text-sm font-medium transition pb-1 ${
+              currentPage === 'ingredients' 
+                ? 'text-pink-500 border-b-2 border-pink-500' 
+                : 'text-gray-700 hover:text-pink-500'
+            }`}
+          >
             Ingredients
           </button>
-          <button onClick={onGoToOccasions} className="text-gray-700 text-sm hover:text-pink-500 transition">
+          <button 
+            onClick={onGoToOccasions} 
+            className={`text-sm font-medium transition pb-1 ${
+              currentPage === 'occasions' 
+                ? 'text-pink-500 border-b-2 border-pink-500' 
+                : 'text-gray-700 hover:text-pink-500'
+            }`}
+          >
             Occasions
           </button>
-          <button onClick={onGoToAboutUs} className="text-gray-700 text-sm hover:text-pink-500 transition">
+          <button 
+            onClick={onGoToAboutUs} 
+            className={`text-sm font-medium transition pb-1 ${
+              currentPage === 'aboutUs' 
+                ? 'text-pink-500 border-b-2 border-pink-500' 
+                : 'text-gray-700 hover:text-pink-500'
+            }`}
+          >
             About Us
           </button>
         </nav>

@@ -27,7 +27,7 @@ const ALL_RECIPES = [
     type: 'Grilled',
     time: 32,
     rating: 5,
-    image: 'https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?w=400&h=300&fit=crop',
+    image: '/images/3_Data/Lab_03/cucumber_salad_charry_tomatoes.png',
     isFavorite: false
   },
   {
@@ -36,7 +36,7 @@ const ALL_RECIPES = [
     type: 'Pan-fried',
     time: 32,
     rating: 5,
-    image: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400&h=300&fit=crop',
+    image: '/images/3_Data/Lab_03/italian_style_tomato_salad.png',
     isFavorite: false
   },
   {
@@ -45,7 +45,7 @@ const ALL_RECIPES = [
     type: 'Sauteed',
     time: 32,
     rating: 4,
-    image: 'https://images.unsplash.com/photo-1599599810694-b5ac4dd64b39?w=400&h=300&fit=crop',
+    image: '/images/3_Data/Lab_03/Potato Salad.png',
     isFavorite: false
   },
   {
@@ -54,7 +54,7 @@ const ALL_RECIPES = [
     type: 'Steamed',
     time: 32,
     rating: 3,
-    image: 'https://images.unsplash.com/photo-1555939594-58d7cb561081?w=400&h=300&fit=crop',
+    image: '/images/3_Data/Lab_03/salad_with_cabbage_and_shrimp.png',
     isFavorite: false
   },
   {
@@ -63,7 +63,7 @@ const ALL_RECIPES = [
     type: 'Pan-fried',
     time: 32,
     rating: 5,
-    image: 'https://images.unsplash.com/photo-1478097143696-c6838f899bdd?w=400&h=300&fit=crop',
+    image: '/images/3_Data/Lab_03/five_color_salad.png',
     isFavorite: false
   },
   {
@@ -72,16 +72,16 @@ const ALL_RECIPES = [
     type: 'Grilled',
     time: 32,
     rating: 4,
-    image: 'https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?w=400&h=300&fit=crop',
+    image: '/images/3_Data/Lab_03/corn_salad.png',
     isFavorite: false
   },
   {
     id: 7,
-    title: 'Salad with cabbage and shrimp',
+    title: 'Bean, Shrimp & Potato Salad',
     type: 'Steamed',
     time: 32,
     rating: 3,
-    image: 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=400&h=300&fit=crop',
+    image: '/images/3_Data/Lab_03/Bean, shrimp, and potato salad.png',
     isFavorite: false
   },
   {
@@ -90,7 +90,7 @@ const ALL_RECIPES = [
     type: 'Sauteed',
     time: 32,
     rating: 5,
-    image: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400&h=300&fit=crop',
+    image: '/images/3_Data/Lab_03/lotus_delight_salad.png',
     isFavorite: false
   },
   {
@@ -99,34 +99,34 @@ const ALL_RECIPES = [
     type: 'Pan-fried',
     time: 32,
     rating: 4,
-    image: 'https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?w=400&h=300&fit=crop',
+    image: '/images/3_Data/Lab_03/avacador_salad.png',
     isFavorite: false
   },
   {
     id: 10,
-    title: 'Greek Salad',
+    title: 'Lotus Delight',
     type: 'Roasted',
     time: 28,
     rating: 5,
-    image: 'https://images.unsplash.com/photo-1599599810694-b5ac4dd64b39?w=400&h=300&fit=crop',
+    image: '/images/3_Data/Lab_03/Lotus delight salad_01.png',
     isFavorite: false
   },
   {
     id: 11,
-    title: 'Caesar Salad',
+    title: 'Vegetable & Shrimp Spaghetti',
     type: 'Pan-fried',
     time: 25,
     rating: 4,
-    image: 'https://images.unsplash.com/photo-1555939594-58d7cb561081?w=400&h=300&fit=crop',
+    image: '/images/3_Data/Lab_03/Vegetable and shrimp spaghetti.png',
     isFavorite: false
   },
   {
     id: 12,
-    title: 'Caprese Salad',
+    title: 'Sunny-side up Fried Eggs',
     type: 'Steamed',
     time: 15,
     rating: 5,
-    image: 'https://images.unsplash.com/photo-1478097143696-c6838f899bdd?w=400&h=300&fit=crop',
+    image: '/images/3_Data/Lab_03/Sunny-side up fried eggs.png',
     isFavorite: false
   },
 ];
@@ -296,33 +296,79 @@ export default function SearchPage({ searchQuery = '', onViewRecipe }) {
 
   return (
     <div className="min-h-screen bg-gray-50">
+      {/* Header Section */}
+      <div className="bg-gradient-to-r from-pink-500 to-pink-600 text-white py-8 mb-8">
+        <div className="max-w-7xl mx-auto px-4">
+          <h1 className="text-4xl font-bold mb-3">Search Recipes</h1>
+          <p className="text-pink-100 mb-6">Find your perfect recipe from our extensive collection</p>
+          
+          {/* Quick Search Bar */}
+          <div className="mb-6">
+            <form onSubmit={(e) => { e.preventDefault(); setCurrentPage(1); }} className="flex gap-2">
+              <div className="flex-1 flex items-center bg-white/90 rounded-lg px-4 py-3 hover:bg-white transition">
+                <svg className="w-5 h-5 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clipRule="evenodd" />
+                </svg>
+                <input
+                  type="text"
+                  placeholder="Quick search recipes..."
+                  value={query}
+                  onChange={(e) => {
+                    setQuery(e.target.value);
+                    setCurrentPage(1);
+                  }}
+                  className="flex-1 bg-transparent ml-2 text-sm outline-none text-gray-800 placeholder-gray-500"
+                />
+              </div>
+              <button
+                type="submit"
+                className="px-6 py-3 bg-white text-pink-500 font-semibold rounded-lg hover:bg-pink-50 transition"
+              >
+                Search
+              </button>
+            </form>
+          </div>
+          
+          {/* Search Stats */}
+          <div className="flex gap-8 text-sm">
+            <div>
+              <p className="text-pink-200 text-xs font-semibold uppercase">Total Recipes</p>
+              <p className="font-bold text-2xl mt-1">{filteredRecipes.length}</p>
+            </div>
+            <div>
+              <p className="text-pink-200 text-xs font-semibold uppercase">Filters Applied</p>
+              <p className="font-bold text-2xl mt-1">
+                {selectedTypes.length + (timeRange[0] !== 15 || timeRange[1] !== 60 ? 1 : 0) + (selectedRating !== null ? 1 : 0)}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
       {/* Search Container */}
-      <div className="flex gap-6 max-w-7xl mx-auto px-4 py-8">
+      <div className="flex gap-6 max-w-7xl mx-auto px-4 pb-8">
         
         {/* Left Sidebar - Filters */}
         <div className="w-80 flex-shrink-0">
-          <div className="bg-white rounded-lg p-6 sticky top-24">
-            <h2 className="text-lg font-bold mb-6 flex items-center gap-2">
-              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+          <div className="bg-white rounded-lg p-6 sticky top-24 shadow-md hover:shadow-lg transition">
+            <h2 className="text-lg font-bold mb-6 flex items-center gap-2 pb-4 border-b border-gray-200">
+              <svg className="w-5 h-5 text-pink-500" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" strokeWidth="2" fill="none" />
               </svg>
-              FILTERS
+              <span className="text-gray-900">FILTERS</span>
             </h2>
 
             {/* Type Filter */}
-            <div className="mb-8">
-              <h3 className="font-bold text-sm mb-4 flex justify-between items-center cursor-pointer">
-                Type
-                <span className="text-pink-500 text-lg">∧</span>
-              </h3>
+            <div className="mb-8 pb-6 border-b border-gray-100">
+              <h3 className="font-bold text-sm mb-4 text-gray-900">Recipe Type</h3>
               <div className="space-y-3">
                 {RECIPE_TYPES.map((type) => (
-                  <label key={type} className="flex items-center gap-3 cursor-pointer">
+                  <label key={type} className="flex items-center gap-3 cursor-pointer hover:text-pink-500 transition">
                     <input
                       type="checkbox"
                       checked={selectedTypes.includes(type)}
                       onChange={() => handleTypeChange(type)}
-                      className="w-4 h-4 rounded border-gray-300 text-pink-500 cursor-pointer"
+                      className="w-4 h-4 rounded border-gray-300 text-pink-500 cursor-pointer accent-pink-500"
                     />
                     <span className="text-sm text-gray-700">{type}</span>
                   </label>
@@ -331,15 +377,12 @@ export default function SearchPage({ searchQuery = '', onViewRecipe }) {
             </div>
 
             {/* Time Filter */}
-            <div className="mb-8">
-              <h3 className="font-bold text-sm mb-4 flex justify-between items-center">
-                Time
-                <span className="text-pink-500 text-lg">∧</span>
-              </h3>
-              <div className="space-y-2">
-                <div className="flex justify-between text-xs text-gray-600">
-                  <span>{timeRange[0]} minutes</span>
-                  <span>{timeRange[1]} minutes</span>
+            <div className="mb-8 pb-6 border-b border-gray-100">
+              <h3 className="font-bold text-sm mb-4 text-gray-900">Cooking Time</h3>
+              <div className="space-y-4">
+                <div className="flex justify-between text-xs text-gray-600 font-semibold">
+                  <span className="bg-pink-100 text-pink-700 px-2 py-1 rounded">{timeRange[0]} min</span>
+                  <span className="bg-pink-100 text-pink-700 px-2 py-1 rounded">{timeRange[1]} min</span>
                 </div>
                 <input
                   type="range"
@@ -367,14 +410,11 @@ export default function SearchPage({ searchQuery = '', onViewRecipe }) {
             </div>
 
             {/* Rating Filter */}
-            <div className="mb-8">
-              <h3 className="font-bold text-sm mb-4 flex justify-between items-center">
-                Rating
-                <span className="text-pink-500 text-lg">∧</span>
-              </h3>
-              <div className="space-y-2">
+            <div>
+              <h3 className="font-bold text-sm mb-4 text-gray-900">Rating</h3>
+              <div className="space-y-3">
                 {[5, 4, 3, 2, 1].map((rating) => (
-                  <label key={rating} className="flex items-center gap-3 cursor-pointer">
+                  <label key={rating} className="flex items-center gap-3 cursor-pointer hover:text-pink-500 transition">
                     <input
                       type="checkbox"
                       checked={selectedRating === rating}
@@ -382,11 +422,11 @@ export default function SearchPage({ searchQuery = '', onViewRecipe }) {
                         setCurrentPage(1);
                         handleRatingChange(rating);
                       }}
-                      className="w-4 h-4 rounded border-gray-300 text-pink-500 cursor-pointer"
+                      className="w-4 h-4 rounded border-gray-300 text-pink-500 cursor-pointer accent-pink-500"
                     />
                     <div className="flex gap-1">
                       {[...Array(5)].map((_, i) => (
-                        <span key={i} className={i < rating ? 'text-yellow-400 text-sm' : 'text-gray-300 text-sm'}>
+                        <span key={i} className={i < rating ? 'text-yellow-400 text-lg' : 'text-gray-300 text-lg'}>
                           ★
                         </span>
                       ))}
@@ -397,7 +437,7 @@ export default function SearchPage({ searchQuery = '', onViewRecipe }) {
             </div>
 
             {/* Apply Button */}
-            <button className="w-full bg-pink-500 text-white py-3 rounded-lg font-semibold hover:bg-pink-600 transition">
+            <button className="w-full bg-gradient-to-r from-pink-500 to-pink-600 text-white py-3 rounded-lg font-semibold hover:shadow-lg transition mt-6">
               Apply
             </button>
           </div>
@@ -420,7 +460,7 @@ export default function SearchPage({ searchQuery = '', onViewRecipe }) {
                   <button
                     key={category}
                     onClick={() => setQuery(category)}
-                    className="px-4 py-2 rounded-full border-2 border-pink-500 text-pink-500 hover:bg-pink-50 transition font-medium text-sm"
+                    className="px-6 py-2 rounded-full border-2 border-pink-300 text-pink-600 hover:border-pink-500 hover:bg-pink-50 hover:shadow-md transition font-semibold text-sm bg-white"
                   >
                     {category}
                   </button>
@@ -430,21 +470,24 @@ export default function SearchPage({ searchQuery = '', onViewRecipe }) {
           ) : (
             <div>
               {/* Header with title and sort */}
-              <div className="flex justify-between items-center mb-6">
+              <div className="flex justify-between items-center mb-6 pb-4 border-b border-gray-200">
                 <h2 className="text-2xl font-bold text-gray-800">
-                  Salad <span className="text-gray-500">({filteredRecipes.length})</span>
+                  Results <span className="text-gray-400">({filteredRecipes.length})</span>
                 </h2>
-                <select
-                  value={sortBy}
-                  onChange={(e) => {
-                    setSortBy(e.target.value);
-                    setCurrentPage(1);
-                  }}
-                  className="px-4 py-2 border border-gray-300 rounded-lg text-sm font-medium focus:outline-none focus:ring-2 focus:ring-pink-500"
-                >
-                  <option value="A-Z">A-Z</option>
-                  <option value="Z-A">Z-A</option>
-                </select>
+                <div className="flex items-center gap-3">
+                  <span className="text-sm text-gray-600 font-medium">Sort by:</span>
+                  <select
+                    value={sortBy}
+                    onChange={(e) => {
+                      setSortBy(e.target.value);
+                      setCurrentPage(1);
+                    }}
+                    className="px-4 py-2 border-2 border-gray-200 rounded-lg text-sm font-medium focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent hover:border-pink-300 transition bg-white cursor-pointer"
+                  >
+                    <option value="A-Z">A-Z</option>
+                    <option value="Z-A">Z-A</option>
+                  </select>
+                </div>
               </div>
 
               {/* Recipe Grid - 3 columns */}
@@ -496,15 +539,16 @@ export default function SearchPage({ searchQuery = '', onViewRecipe }) {
 
               {/* Pagination */}
               {totalPages > 1 && (
-                <div className="flex justify-center items-center gap-2 mb-8">
+                <div className="flex justify-center items-center gap-2 mb-8 py-6 border-t border-gray-200">
                   <button
                     onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
-                    className="text-gray-600 hover:text-gray-800 transition"
+                    className="px-3 py-2 text-gray-600 hover:text-gray-800 hover:bg-pink-50 rounded-lg transition font-semibold disabled:opacity-50 disabled:cursor-not-allowed"
                     disabled={currentPage === 1}
                   >
-                    ‹
+                    ‹ Previous
                   </button>
 
+                  <div className="flex gap-1 mx-4">
                   {[...Array(Math.min(totalPages, 11))].map((_, i) => {
                     let pageNum;
                     if (totalPages <= 11) {
@@ -523,27 +567,27 @@ export default function SearchPage({ searchQuery = '', onViewRecipe }) {
                       <button
                         key={pageNum}
                         onClick={() => setCurrentPage(pageNum)}
-                        className={`w-8 h-8 rounded ${
+                        className={`w-8 h-8 rounded-lg font-semibold transition ${
                           currentPage === pageNum
-                            ? 'bg-pink-500 text-white font-bold'
-                            : 'border border-gray-300 text-gray-700 hover:border-pink-500'
-                        } transition`}
+                            ? 'bg-gradient-to-r from-pink-500 to-pink-600 text-white shadow-md'
+                            : 'border border-gray-200 text-gray-700 hover:border-pink-500 hover:bg-pink-50'
+                        }`}
                       >
                         {pageNum}
                       </button>
                     );
                   })}
-
+                  </div>
                   {totalPages > 11 && currentPage < totalPages - 5 && (
-                    <span className="text-gray-600">...</span>
+                    <span className="text-gray-400 font-bold">...</span>
                   )}
 
                   <button
                     onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))}
-                    className="text-gray-600 hover:text-gray-800 transition"
+                    className="px-3 py-2 text-gray-600 hover:text-gray-800 hover:bg-pink-50 rounded-lg transition font-semibold disabled:opacity-50 disabled:cursor-not-allowed"
                     disabled={currentPage === totalPages}
                   >
-                    ›
+                    Next ›
                   </button>
                 </div>
               )}

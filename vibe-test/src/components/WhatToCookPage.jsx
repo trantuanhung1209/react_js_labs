@@ -34,14 +34,14 @@ const WhatToCookPage = ({ onViewRecipe, onGoHome }) => {
 
   // Mock recipes with meal types and dietary info
   const allRecipes = [
-    { id: 1, title: 'Caesar Salad', type: 'lunch', image: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400&h=300&fit=crop', time: 15, dietary: ['vegan', 'vegetarian', 'glutenfree'] },
-    { id: 2, title: 'Grilled Chicken Breast', type: 'dinner', image: 'https://images.unsplash.com/photo-1598103442097-8b74394b95c6?w=400&h=300&fit=crop', time: 45, dietary: ['keto', 'paleo'] },
-    { id: 3, title: 'Pancakes', type: 'breakfast', image: 'https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=400&h=300&fit=crop', time: 30, dietary: ['vegetarian'] },
-    { id: 4, title: 'Chocolate Cake', type: 'dessert', image: 'https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=400&h=300&fit=crop', time: 60, dietary: ['vegetarian'] },
-    { id: 5, title: 'Trail Mix', type: 'snacks', image: 'https://images.unsplash.com/photo-1599599810694-b5ac4dd64b39?w=400&h=300&fit=crop', time: 5, dietary: ['vegan', 'vegetarian'] },
-    { id: 6, title: 'Buddha Bowl', type: 'lunch', image: 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=400&h=300&fit=crop', time: 25, dietary: ['vegan', 'vegetarian', 'glutenfree'] },
-    { id: 7, title: 'Salmon with Vegetables', type: 'dinner', image: 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=400&h=300&fit=crop', time: 50, dietary: ['paleo', 'keto'] },
-    { id: 8, title: 'Smoothie Bowl', type: 'breakfast', image: 'https://images.unsplash.com/photo-1590080876-1f0b3b1c1f00?w=400&h=300&fit=crop', time: 10, dietary: ['vegan', 'vegetarian'] },
+    { id: 1, title: 'Avocado Salad', type: 'lunch', image: '/images/3_Data/Lab_03/avacador_salad.png', time: 15, dietary: ['vegan', 'vegetarian', 'glutenfree'] },
+    { id: 2, title: 'Grilled Chicken with Vegetables', type: 'dinner', image: '/images/3_Data/Lab_03/Vegetable and shrimp spaghetti.png', time: 45, dietary: ['keto', 'paleo'] },
+    { id: 3, title: 'Sunny-side up Fried Eggs', type: 'breakfast', image: '/images/3_Data/Lab_03/Sunny-side up fried eggs.png', time: 15, dietary: ['vegetarian'] },
+    { id: 4, title: 'Snack Cakes', type: 'dessert', image: '/images/3_Data/Lab_03/Snack cakes.png', time: 30, dietary: ['vegetarian'] },
+    { id: 5, title: 'Corn Salad', type: 'snacks', image: '/images/3_Data/Lab_03/corn_salad.png', time: 10, dietary: ['vegan', 'vegetarian'] },
+    { id: 6, title: 'Five Color Salad', type: 'lunch', image: '/images/3_Data/Lab_03/five_color_salad.png', time: 20, dietary: ['vegan', 'vegetarian', 'glutenfree'] },
+    { id: 7, title: 'Bean, Shrimp & Potato Salad', type: 'dinner', image: '/images/3_Data/Lab_03/Bean, shrimp, and potato salad.png', time: 35, dietary: ['paleo', 'keto'] },
+    { id: 8, title: 'Cucumber & Cherry Tomato Salad', type: 'breakfast', image: '/images/3_Data/Lab_03/cucumber_salad_charry_tomatoes.png', time: 10, dietary: ['vegan', 'vegetarian'] },
   ];
 
   const filteredRecipes = useMemo(() => {
