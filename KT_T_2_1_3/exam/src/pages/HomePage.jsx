@@ -9,7 +9,14 @@ function HomePage() {
   // stats = { total, read, reading, unread }
   const stats = useMemo(() => {
     // SV tính toán ở đây
-    return { total: 0, read: 0, reading: 0, unread: 0 }
+    // useMemo phù hợp vì thống kê chỉ cần tính lại khi danh sách books thay đổi.
+    return books.reduce(
+      (result, book) => ({
+        ...result,
+        [book.status]: result[book.status] + 1,
+      }),
+      { total: books.length, read: 0, reading: 0, unread: 0 }
+    )
   }, [books])
 
   return (

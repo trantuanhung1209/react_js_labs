@@ -12,7 +12,8 @@ function LoginPage() {
 
   // TODO (Câu 4): SV sử dụng custom hook useLocalStorage ở đây
   // Ví dụ: const [savedUser, setSavedUser] = useLocalStorage('user', null)
-  const [savedUser, setSavedUser] = useLocalStorage('user', null)
+  const [, setSavedUser] = useLocalStorage('user', null)
+
   // TODO (Câu 9): Viết hàm đăng nhập:
   //   - Kiểm tra đơn giản: username === 'admin' && password === '123' là hợp lệ
   //   - Nếu đúng:
@@ -23,6 +24,15 @@ function LoginPage() {
   const handleLogin = (e) => {
     e.preventDefault()
     // SV viết code ở đây
+    if (username === 'admin' && password === '123') {
+      const loggedInUser = { username: 'admin' }
+      setUser(loggedInUser)
+      setSavedUser(loggedInUser)
+      navigate('/')
+      return
+    }
+
+    alert('Tên đăng nhập hoặc mật khẩu không đúng')
   }
 
   return (

@@ -20,7 +20,16 @@ const initialState = {
 
 function formReducer(state, action) {
   // SV viết các case ở đây
-  return state
+  switch (action.type) {
+    case 'SET_FIELD':
+      return { ...state, [action.field]: action.value, error: '' }
+    case 'SET_ERROR':
+      return { ...state, error: action.error }
+    case 'RESET':
+      return initialState
+    default:
+      return state
+  }
 }
 
 function AddBookPage() {
@@ -40,6 +49,22 @@ function AddBookPage() {
   const handleSubmit = async (e) => {
     e.preventDefault()
     // SV viết code ở đây
+    if (!state.title.trim() || !state.author.trim()) {
+      dispatch({ type: 'SET_ERROR', error: 'Tên sách và tác giả không được để trống' })
+      return
+    }
+
+    const newBook = await addBook({
+      title: state.title.trim(),
+      author: state.author.trim(),
+      category: state.category.trim(),
+      status: state.status,
+      description: '',
+    })
+
+    setBooks((currentBooks) => [...currentBooks, newBook])
+    dispatch({ type: 'RESET' })
+    navigate('/books')
   }
 
   return (

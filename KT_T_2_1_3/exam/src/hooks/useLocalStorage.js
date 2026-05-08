@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 
 // TODO (Câu 4): SV hoàn thiện custom hook useLocalStorage
 // Hook này đồng bộ state với localStorage theo key
@@ -7,25 +7,24 @@ import { useState, useEffect } from 'react'
 //   - Khi setValue: cập nhật state và ghi vào localStorage
 //   - Trả về [value, setValue] giống useState
 export function useLocalStorage(key, initialValue) {
-  const [state, setState] = useState(() => {
-    try {
-      const raw = localStorage.getItem(key)
-      if (raw !== null) return JSON.parse(raw)
-      return typeof initialValue === 'function' ? initialValue() : initialValue
-    } catch (err) {
-      console.error('useLocalStorage init error', err)
-      return typeof initialValue === 'function' ? initialValue() : initialValue
-    }
+  // SV viết code ở đây
+  const [value, setValue] = useState(() => {
+    const storedValue = localStorage.getItem(key)
+    return storedValue ? JSON.parse(storedValue) : initialValue
   })
 
-  useEffect(() => {
-    try {
-      if (state === undefined) localStorage.removeItem(key)
-      else localStorage.setItem(key, JSON.stringify(state))
-    } catch (err) {
-      console.error('useLocalStorage set error', err)
-    }
-  }, [key, state])
+  const setStoredValue = (newValue) => {
+    const nextValue =
+      typeof newValue === 'function' ? newValue(value) : newValue
 
-  return [state, setState]
+    if (nextValue === null || nextValue === undefined) {
+      localStorage.removeItem(key)
+    } else {
+      localStorage.setItem(key, JSON.stringify(nextValue))
+    }
+
+    setValue(nextValue)
+  }
+
+  return [value, setStoredValue]
 }
